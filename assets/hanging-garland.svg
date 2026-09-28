@@ -1,0 +1,274 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" fill="none">
+  <defs>
+    <!-- Leaves -->
+    <g id="leafH">
+      <ellipse rx="8" ry="3" fill="#5a9648"/>
+    </g>
+    <g id="leafD">
+      <ellipse rx="6" ry="2.5" fill="#4a8638"/>
+    </g>
+    <g id="leafL">
+      <ellipse rx="7" ry="2.8" fill="#6db35a"/>
+    </g>
+    <!-- Hanging vine -->
+    <g id="vine">
+      <path d="M0 0 C 2 15 -2 30 0 45" stroke="#5a9648" stroke-width="1.5" fill="none"/>
+    </g>
+    <!-- Pink flower cluster -->
+    <g id="pinkF">
+      <circle r="6" fill="#f0a0b0"/>
+      <circle r="4" fill="#e88a9c"/>
+      <circle r="2" fill="#d87088"/>
+    </g>
+    <!-- White flower -->
+    <g id="whiteF">
+      <circle r="5" fill="#ffffff"/>
+      <circle r="2" fill="#b8d9a6"/>
+    </g>
+    <!-- Red/pink bud -->
+    <g id="bud">
+      <ellipse rx="3" ry="5" fill="#e07888"/>
+    </g>
+    <!-- Gold beads -->
+    <g id="beads">
+      <circle cx="0" cy="0" r="2" fill="#d4aa60"/>
+      <circle cx="0" cy="8" r="1.5" fill="#c49a50"/>
+      <circle cx="0" cy="14" r="1.5" fill="#d4aa60"/>
+      <circle cx="0" cy="20" r="1" fill="#c49a50"/>
+    </g>
+  </defs>
+  
+  <style>
+    /*
+      Realistic hanging garland: the top rail is fixed, and every dangling vine
+      pivots from ITS OWN top anchor (transform-box: fill-box + origin center top).
+      A pendulum easing (in-out) with a tiny counter-swing at the extremes reads
+      like fabric/greenery caught in a light breeze. Amplitudes are small because
+      a heavy garland barely moves; staggered durations/delays desynchronize them.
+    */
+    .vine-left, .vine-right, .vine-center {
+      transform-box: fill-box;
+      transform-origin: center top;
+    }
+
+    @keyframes swayA {
+      0%   { transform: rotate(-1.6deg); }
+      50%  { transform: rotate(1.6deg); }
+      100% { transform: rotate(-1.6deg); }
+    }
+    @keyframes swayB {
+      0%   { transform: rotate(1.4deg); }
+      50%  { transform: rotate(-1.4deg); }
+      100% { transform: rotate(1.4deg); }
+    }
+    /* Center vines are longer/heavier, so they swing a touch wider and slower */
+    @keyframes swayC {
+      0%   { transform: rotate(-2.2deg); }
+      50%  { transform: rotate(2.2deg); }
+      100% { transform: rotate(-2.2deg); }
+    }
+
+    /* Beads hang as a plumb line: gentle pendulum from their own top */
+    @keyframes beadSwing {
+      0%   { transform: rotate(-2deg); }
+      50%  { transform: rotate(2deg); }
+      100% { transform: rotate(-2deg); }
+    }
+
+    .vine-left   { animation: swayA 4.2s ease-in-out infinite; }
+    .vine-right  { animation: swayB 4.8s ease-in-out infinite; }
+    .vine-center { animation: swayC 5.6s ease-in-out infinite; }
+    .beads-anim  {
+      transform-box: fill-box;
+      transform-origin: center top;
+      animation: beadSwing 3.4s ease-in-out infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .vine-left, .vine-right, .vine-center, .beads-anim { animation: none; }
+    }
+  </style>
+
+  <!-- Base greenery across top -->
+  <rect x="0" y="0" width="400" height="25" fill="#4a8638" opacity="0.3"/>
+  
+  <!-- Dense leaf layer at top -->
+  <g>
+    <use href="#leafH" transform="translate(10 8) rotate(45)"/>
+    <use href="#leafD" transform="translate(25 5) rotate(30)"/>
+    <use href="#leafL" transform="translate(40 10) rotate(60)"/>
+    <use href="#leafH" transform="translate(55 6) rotate(40)"/>
+    <use href="#leafD" transform="translate(70 9) rotate(55)"/>
+    <use href="#leafL" transform="translate(85 5) rotate(35)"/>
+    <use href="#leafH" transform="translate(100 8) rotate(50)"/>
+    <use href="#leafD" transform="translate(115 6) rotate(45)"/>
+    <use href="#leafL" transform="translate(130 10) rotate(60)"/>
+    <use href="#leafH" transform="translate(145 5) rotate(30)"/>
+    <use href="#leafD" transform="translate(160 8) rotate(55)"/>
+    <use href="#leafL" transform="translate(175 6) rotate(40)"/>
+    <use href="#leafH" transform="translate(190 9) rotate(50)"/>
+    <use href="#leafD" transform="translate(205 5) rotate(35)"/>
+    <use href="#leafL" transform="translate(220 8) rotate(60)"/>
+    <use href="#leafH" transform="translate(235 6) rotate(45)"/>
+    <use href="#leafD" transform="translate(250 10) rotate(55)"/>
+    <use href="#leafL" transform="translate(265 5) rotate(30)"/>
+    <use href="#leafH" transform="translate(280 8) rotate(50)"/>
+    <use href="#leafD" transform="translate(295 6) rotate(40)"/>
+    <use href="#leafL" transform="translate(310 9) rotate(60)"/>
+    <use href="#leafH" transform="translate(325 5) rotate(35)"/>
+    <use href="#leafD" transform="translate(340 8) rotate(55)"/>
+    <use href="#leafL" transform="translate(355 6) rotate(45)"/>
+    <use href="#leafH" transform="translate(370 10) rotate(50)"/>
+    <use href="#leafD" transform="translate(385 5) rotate(30)"/>
+    <use href="#leafL" transform="translate(395 8) rotate(60)"/>
+  </g>
+
+  <!-- Hanging vines with leaves - LEFT SIDE -->
+  <!-- Each vine: outer <g> holds POSITION (transform attribute), inner <g> holds
+       the SWAY (CSS transform). Separating them prevents the CSS animation from
+       overwriting the positioning transform. -->
+  <g transform="translate(20 15)">
+    <g class="vine-left">
+      <use href="#vine"/>
+      <use href="#leafD" transform="translate(-3 12) rotate(100)"/>
+      <use href="#leafL" transform="translate(4 25) rotate(80)"/>
+      <use href="#leafD" transform="translate(-2 38) rotate(95)"/>
+      <use href="#pinkF" transform="translate(0 50) scale(0.7)"/>
+    </g>
+  </g>
+  <g transform="translate(50 12)">
+    <g class="vine-right" style="animation-delay: 0.3s">
+      <use href="#vine"/>
+      <use href="#leafL" transform="translate(3 15) rotate(85)"/>
+      <use href="#leafD" transform="translate(-4 28) rotate(100)"/>
+      <use href="#whiteF" transform="translate(0 42) scale(0.8)"/>
+    </g>
+  </g>
+  <g transform="translate(80 18)">
+    <g class="vine-left" style="animation-delay: 0.6s">
+      <use href="#vine"/>
+      <use href="#leafD" transform="translate(-2 10) rotate(95)"/>
+      <use href="#leafL" transform="translate(3 22) rotate(80)"/>
+      <use href="#bud" transform="translate(0 35)"/>
+    </g>
+  </g>
+
+  <!-- Gold beads - LEFT -->
+  <g transform="translate(35 20)"><g class="beads-anim"><use href="#beads"/></g></g>
+  <g transform="translate(65 25)"><g class="beads-anim" style="animation-delay: 0.5s"><use href="#beads"/></g></g>
+
+  <!-- Hanging vines - LEFT-CENTER -->
+  <g transform="translate(110 14)">
+    <g class="vine-right" style="animation-delay: 0.2s">
+      <use href="#vine"/>
+      <use href="#leafL" transform="translate(-3 12) rotate(100)"/>
+      <use href="#leafD" transform="translate(4 24) rotate(85)"/>
+      <use href="#pinkF" transform="translate(0 38) scale(0.8)"/>
+    </g>
+  </g>
+  <g transform="translate(140 20)">
+    <g class="vine-left" style="animation-delay: 0.4s">
+      <use href="#vine"/>
+      <use href="#leafD" transform="translate(2 10) rotate(90)"/>
+      <use href="#leafL" transform="translate(-3 20) rotate(105)"/>
+      <use href="#leafD" transform="translate(2 32) rotate(85)"/>
+      <use href="#whiteF" transform="translate(0 45) scale(0.7)"/>
+    </g>
+  </g>
+
+  <!-- Gold beads - LEFT-CENTER -->
+  <g transform="translate(125 22)"><g class="beads-anim" style="animation-delay: 0.8s"><use href="#beads"/></g></g>
+
+  <!-- Hanging vines - CENTER (longer, more dramatic) -->
+  <g transform="translate(170 15)">
+    <g class="vine-center">
+      <path d="M0 0 C 3 20 -3 45 0 70" stroke="#5a9648" stroke-width="1.5" fill="none"/>
+      <use href="#leafL" transform="translate(-4 18) rotate(100)"/>
+      <use href="#leafD" transform="translate(4 35) rotate(80)"/>
+      <use href="#leafL" transform="translate(-3 52) rotate(95)"/>
+      <use href="#pinkF" transform="translate(0 72) scale(0.9)"/>
+    </g>
+  </g>
+  <g transform="translate(200 12)">
+    <g class="vine-center" style="animation-delay: 0.5s">
+      <path d="M0 0 C -2 25 3 55 0 85" stroke="#5a9648" stroke-width="1.5" fill="none"/>
+      <use href="#leafD" transform="translate(3 15) rotate(85)"/>
+      <use href="#leafL" transform="translate(-4 32) rotate(100)"/>
+      <use href="#leafD" transform="translate(3 50) rotate(85)"/>
+      <use href="#leafL" transform="translate(-3 68) rotate(95)"/>
+      <use href="#bud" transform="translate(0 88) scale(1.2)"/>
+    </g>
+  </g>
+  <g transform="translate(230 15)">
+    <g class="vine-center" style="animation-delay: 1s">
+      <path d="M0 0 C -3 20 3 45 0 70" stroke="#5a9648" stroke-width="1.5" fill="none"/>
+      <use href="#leafL" transform="translate(4 18) rotate(80)"/>
+      <use href="#leafD" transform="translate(-4 35) rotate(100)"/>
+      <use href="#leafL" transform="translate(3 52) rotate(85)"/>
+      <use href="#whiteF" transform="translate(0 72) scale(0.9)"/>
+    </g>
+  </g>
+
+  <!-- Gold beads - CENTER -->
+  <g transform="translate(185 18)"><g class="beads-anim" style="animation-delay: 0.3s"><use href="#beads"/></g></g>
+  <g transform="translate(215 20)"><g class="beads-anim" style="animation-delay: 0.7s"><use href="#beads"/></g></g>
+
+  <!-- Hanging vines - RIGHT-CENTER -->
+  <g transform="translate(260 20)">
+    <g class="vine-left" style="animation-delay: 0.3s">
+      <use href="#vine"/>
+      <use href="#leafD" transform="translate(-2 10) rotate(95)"/>
+      <use href="#leafL" transform="translate(3 22) rotate(80)"/>
+      <use href="#leafD" transform="translate(-2 35) rotate(100)"/>
+      <use href="#pinkF" transform="translate(0 48) scale(0.75)"/>
+    </g>
+  </g>
+  <g transform="translate(290 14)">
+    <g class="vine-right" style="animation-delay: 0.6s">
+      <use href="#vine"/>
+      <use href="#leafL" transform="translate(3 12) rotate(85)"/>
+      <use href="#leafD" transform="translate(-3 25) rotate(100)"/>
+      <use href="#whiteF" transform="translate(0 40) scale(0.8)"/>
+    </g>
+  </g>
+
+  <!-- Gold beads - RIGHT-CENTER -->
+  <g transform="translate(275 22)"><g class="beads-anim" style="animation-delay: 0.4s"><use href="#beads"/></g></g>
+
+  <!-- Hanging vines - RIGHT SIDE -->
+  <g transform="translate(320 18)">
+    <g class="vine-right">
+      <use href="#vine"/>
+      <use href="#leafD" transform="translate(-3 12) rotate(100)"/>
+      <use href="#leafL" transform="translate(4 25) rotate(80)"/>
+      <use href="#bud" transform="translate(0 38)"/>
+    </g>
+  </g>
+  <g transform="translate(350 12)">
+    <g class="vine-left" style="animation-delay: 0.5s">
+      <use href="#vine"/>
+      <use href="#leafL" transform="translate(3 15) rotate(85)"/>
+      <use href="#leafD" transform="translate(-4 28) rotate(100)"/>
+      <use href="#pinkF" transform="translate(0 42) scale(0.7)"/>
+    </g>
+  </g>
+  <g transform="translate(380 15)">
+    <g class="vine-right" style="animation-delay: 0.8s">
+      <use href="#vine"/>
+      <use href="#leafD" transform="translate(-2 10) rotate(95)"/>
+      <use href="#leafL" transform="translate(3 22) rotate(80)"/>
+      <use href="#whiteF" transform="translate(0 35) scale(0.75)"/>
+    </g>
+  </g>
+
+  <!-- Gold beads - RIGHT -->
+  <g transform="translate(335 24)"><g class="beads-anim" style="animation-delay: 0.2s"><use href="#beads"/></g></g>
+  <g transform="translate(365 20)"><g class="beads-anim" style="animation-delay: 0.9s"><use href="#beads"/></g></g>
+
+  <!-- Extra flower accents pinned to the top rail (static — they sit on the fixed rail) -->
+  <use href="#pinkF" transform="translate(30 15) scale(0.6)"/>
+  <use href="#whiteF" transform="translate(95 12) scale(0.65)"/>
+  <use href="#pinkF" transform="translate(155 14) scale(0.55)"/>
+  <use href="#whiteF" transform="translate(245 13) scale(0.6)"/>
+  <use href="#pinkF" transform="translate(305 15) scale(0.55)"/>
+  <use href="#whiteF" transform="translate(370 12) scale(0.6)"/>
+</svg>

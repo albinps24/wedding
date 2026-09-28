@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <style>
+    .line { stroke: #3a3a3a; stroke-width: 1.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .line-thin { stroke: #4a4a4a; stroke-width: 0.8; fill: none; }
+    .fill-white { fill: #fafafa; }
+    .fill-roof { fill: #2a2a2a; }
+    .fill-light { fill: #f5f5f5; }
+    .tree { fill: none; stroke: #4a4a4a; stroke-width: 1; }
+  </style>
+  
+  <!-- Ground line -->
+  <path class="line" d="M20 260 Q 100 255 200 258 Q 300 255 380 260"/>
+  
+  <!-- Main church building (right side) -->
+  <g transform="translate(240 120)">
+    <!-- Front wall -->
+    <path class="line fill-white" d="M-60 140 L -60 40 L 0 -10 L 60 40 L 60 140 Z"/>
+    
+    <!-- Roof -->
+    <path class="fill-roof" d="M-65 42 L 0 -15 L 65 42 L 60 40 L 0 -10 L -60 40 Z" opacity="0.8"/>
+    
+    <!-- Cross on top -->
+    <path class="line" d="M0 -10 L 0 -35"/>
+    <path class="line" d="M-8 -25 L 8 -25"/>
+    <circle cx="0" cy="-35" r="3" class="line"/>
+    
+    <!-- Main arched door -->
+    <path class="line fill-light" d="M-20 140 L -20 90 A 20 20 0 0 1 20 90 L 20 140"/>
+    <path class="line-thin" d="M0 90 L 0 140"/>
+    
+    <!-- Rose window above door -->
+    <circle cx="0" cy="55" r="18" class="line fill-light"/>
+    <circle cx="0" cy="55" r="12" class="line-thin"/>
+    <circle cx="0" cy="55" r="6" class="line-thin"/>
+    <path class="line-thin" d="M0 37 L 0 73 M-18 55 L 18 55"/>
+    
+    <!-- Side windows -->
+    <path class="line fill-light" d="M-45 120 L -45 85 A 8 8 0 0 1 -29 85 L -29 120"/>
+    <path class="line fill-light" d="M29 120 L 29 85 A 8 8 0 0 1 45 85 L 45 120"/>
+    
+    <!-- Small cross above rose window -->
+    <path class="line-thin" d="M0 25 L 0 35 M-4 30 L 4 30"/>
+  </g>
+  
+  <!-- Bell tower (left side) -->
+  <g transform="translate(120 60)">
+    <!-- Tower base -->
+    <path class="line fill-white" d="M-30 200 L -30 80 L 30 80 L 30 200"/>
+    
+    <!-- Tower middle section -->
+    <path class="line fill-white" d="M-25 80 L -25 30 L 25 30 L 25 80"/>
+    
+    <!-- Spire -->
+    <path class="line fill-light" d="M-20 30 L 0 -40 L 20 30"/>
+    <path class="fill-roof" d="M-22 32 L 0 -42 L 22 32 L 20 30 L 0 -40 L -20 30 Z" opacity="0.6"/>
+    
+    <!-- Cross on spire -->
+    <path class="line" d="M0 -40 L 0 -60"/>
+    <path class="line" d="M-6 -52 L 6 -52"/>
+    
+    <!-- Tower windows (arched) -->
+    <path class="line fill-light" d="M-12 70 L -12 45 A 12 12 0 0 1 12 45 L 12 70"/>
+    <path class="line-thin" d="M0 45 L 0 70"/>
+    <path class="line fill-light" d="M-12 130 L -12 100 A 12 12 0 0 1 12 100 L 12 130"/>
+    <path class="line-thin" d="M0 100 L 0 130"/>
+    
+    <!-- Tower decorative lines -->
+    <path class="line-thin" d="M-30 80 L 30 80"/>
+    <path class="line-thin" d="M-25 30 L 25 30"/>
+  </g>
+  
+  <!-- Connecting roof between tower and main building -->
+  <path class="fill-roof" d="M150 180 L 180 155 L 180 180 Z" opacity="0.7"/>
+  <path class="line" d="M150 180 L 180 155"/>
+  
+  <!-- Side building/extension -->
+  <path class="line fill-white" d="M50 260 L 50 200 L 90 180 L 150 180 L 150 260"/>
+  <path class="fill-roof" d="M48 202 L 90 178 L 152 178 L 152 182 L 90 182 L 50 204 Z" opacity="0.7"/>
+  
+  <!-- Side windows on extension -->
+  <path class="line fill-light" d="M70 250 L 70 220 A 8 8 0 0 1 86 220 L 86 250"/>
+  <path class="line fill-light" d="M110 250 L 110 220 A 8 8 0 0 1 126 220 L 126 250"/>
+  
+  <!-- Trees - Left side -->
+  <g transform="translate(30 230)">
+    <ellipse cx="0" cy="-20" rx="25" ry="30" class="tree"/>
+    <ellipse cx="-15" cy="-10" rx="18" ry="22" class="tree"/>
+    <ellipse cx="12" cy="-15" rx="15" ry="20" class="tree"/>
+    <path class="line-thin" d="M0 0 L 0 10"/>
+  </g>
+  
+  <!-- Trees - Right side -->
+  <g transform="translate(350 235)">
+    <ellipse cx="0" cy="-15" rx="22" ry="28" class="tree"/>
+    <ellipse cx="15" cy="-8" rx="16" ry="20" class="tree"/>
+    <path class="line-thin" d="M5 0 L 5 8"/>
+  </g>
+  
+  <!-- Small bushes -->
+  <ellipse cx="310" cy="258" rx="12" ry="8" class="tree"/>
+  <ellipse cx="170" cy="260" rx="10" ry="6" class="tree"/>
+  
+  <!-- Path/walkway hint -->
+  <path class="line-thin" d="M220 260 Q 240 255 260 260"/>
+</svg>
