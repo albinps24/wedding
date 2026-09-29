@@ -1324,9 +1324,10 @@ body::before {
     || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
   function googleUrl() {
+    // All-day event: date range is start day to next day (end is exclusive)
     return 'https://calendar.google.com/calendar/render?action=TEMPLATE'
       + '&text=' + encodeURIComponent(title)
-      + '&dates=' + startUTC + '/' + endUTC
+      + '&dates=20261128/20261129'
       + '&details=' + encodeURIComponent(details)
       + '&location=' + encodeURIComponent(location);
   }
@@ -1340,11 +1341,18 @@ body::before {
       'BEGIN:VEVENT',
       'UID:albin-treesa-2026@wedding',
       'DTSTAMP:' + startUTC,
-      'DTSTART:' + startUTC,
-      'DTEND:' + endUTC,
+      // All-day event (DATE value); DTEND is the day after (exclusive)
+      'DTSTART;VALUE=DATE:20261128',
+      'DTEND;VALUE=DATE:20261129',
       'SUMMARY:' + title,
       'LOCATION:St. Sebastian Church\\, Punchavayal\\, Kerala',
       'DESCRIPTION:With joy we invite you to the wedding ceremony of Albin & Treesa\\, followed by lunch.',
+      // Reminder 1 day before
+      'BEGIN:VALARM',
+      'ACTION:DISPLAY',
+      'DESCRIPTION:' + title,
+      'TRIGGER:-P1D',
+      'END:VALARM',
       'END:VEVENT',
       'END:VCALENDAR'
     ].join('\r\n');
