@@ -546,6 +546,7 @@ body::before {
 
 /* ---------------- Wedding Day Section ---------------- */
 .wedding-day-section {
+  position: relative;
   text-align: center;
   padding-bottom: 6px;
 }
@@ -1317,7 +1318,9 @@ body::before {
   const endUTC = '20261128T073000Z';
 
   const ua = navigator.userAgent || '';
-  const isApple = /iPhone|iPad|iPod|Macintosh/.test(ua)
+  // Any mobile/tablet device: use the .ics file so it opens in the phone's
+  // DEFAULT calendar app (Apple Calendar on iOS, the default calendar on Android).
+  const isMobile = /Android|iPhone|iPad|iPod|Mobile|Windows Phone/i.test(ua)
     || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
   function googleUrl() {
@@ -1345,6 +1348,13 @@ body::before {
       'END:VEVENT',
       'END:VCALENDAR'
     ].join('\r\n');
+    if (isMobile) {
+      // On phones, navigate to a data: URL so the OS hands the .ics to the
+      // default calendar app (works on iOS Safari and Android browsers).
+      window.location.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+      return;
+    }
+    // Desktop download fallback (used only if reached)
     const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -1358,11 +1368,11 @@ body::before {
 
   btn.addEventListener('click', function (e) {
     e.preventDefault();
-    if (isApple) {
-      // iPhone / iPad / Mac: .ics opens straight into Apple Calendar
+    if (isMobile) {
+      // Phones/tablets: the .ics opens in the device's default calendar app
       downloadIcs();
     } else {
-      // Android / Windows / desktop: open Google Calendar pre-filled
+      // Desktop browsers: open Google Calendar pre-filled as a fallback
       window.open(googleUrl(), '_blank', 'noopener');
     }
   });
