@@ -1347,11 +1347,11 @@ body::before {
       'SUMMARY:' + title,
       'LOCATION:St. Sebastian Church\\, Punchavayal\\, Kerala',
       'DESCRIPTION:With joy we invite you to the wedding ceremony of Albin & Treesa\\, followed by lunch.',
-      // Reminder 1 day before
+      // Reminder at 8:00 AM the day before (27 Nov 2026 08:00 IST = 02:30 UTC)
       'BEGIN:VALARM',
       'ACTION:DISPLAY',
       'DESCRIPTION:' + title,
-      'TRIGGER:-P1D',
+      'TRIGGER;VALUE=DATE-TIME:20261127T023000Z',
       'END:VALARM',
       'END:VEVENT',
       'END:VCALENDAR'
