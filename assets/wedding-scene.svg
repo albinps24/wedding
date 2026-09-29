@@ -121,9 +121,6 @@
         <path d="M0.5 -52 C 0.5 -50 0.5 -47 0 -45"/>
         <path d="M4 -52 C 5 -50 5 -47 4 -45"/>
       </g>
-      <!-- low bun sitting at the nape (below the head) -->
-      <ellipse cx="0.5" cy="-35" rx="4.6" ry="4" class="fill-hair"/>
-      <path class="line-thin" stroke="#000" d="M-3 -35 C -1 -37 3 -37 4 -35 M-3 -34 C -1 -32 3 -32 4 -34"/>
       <!-- veil comb / tiara band at the crown -->
       <path class="line-thin" d="M-6 -53 C -2 -56 2 -56 6 -53"/>
       <!-- left arm -->
