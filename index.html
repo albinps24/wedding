@@ -1356,22 +1356,19 @@ body::before {
       'END:VEVENT',
       'END:VCALENDAR'
     ].join('\r\n');
-    if (isMobile) {
-      // On phones, navigate to a data: URL so the OS hands the .ics to the
-      // default calendar app (works on iOS Safari and Android browsers).
-      window.location.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
-      return;
-    }
-    // Desktop download fallback (used only if reached)
+    // Use a blob + anchor with a download filename on all devices so the
+    // file keeps its proper name (data: URLs default to "download.ics").
+    const fileName = 'Albin-Treesa-Wedding.ics';
     const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'Albin-Treesa-Wedding.ics';
+    a.download = fileName;
+    a.rel = 'noopener';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
   }
 
   btn.addEventListener('click', function (e) {
