@@ -1,173 +1,146 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" fill="none">
+  <style>
+    .line       { stroke: #3a3a3a; stroke-width: 1.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .line-thin  { stroke: #4a4a4a; stroke-width: 0.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .line-fine  { stroke: #5a5a5a; stroke-width: 0.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .fill-white { fill: #fafafa; }
+    .fill-light { fill: #f2f2f2; }
+    .fill-mid   { fill: #d8d8d8; }
+    .fill-dark  { fill: #2a2a2a; }
+    .fill-hair  { fill: #1e1e1e; }
+    .tree       { fill: none; stroke: #4a4a4a; stroke-width: 1; }
+    .hatch      { stroke: #b8b8b8; stroke-width: 0.6; fill: none; }
+    .fill-cream-fade { fill: #f8f5ec; }
+  </style>
+
   <defs>
-    <!-- Ground tuned to the warm cream card palette so the scene blends into the card.
-         Fades to the card cream (#f8f5ec) at the very bottom to hide the seam. -->
-    <linearGradient id="grassG" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#dbe9c9"/>
-      <stop offset="0.55" stop-color="#cfe0bd"/>
-      <stop offset="1" stop-color="#f4efe2"/>
-    </linearGradient>
-    <linearGradient id="pathG" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#efe6d3"/>
-      <stop offset="1" stop-color="#e0cfa9"/>
-    </linearGradient>
-    <!-- Full-width cream wash that melts the base of the scene into the card -->
     <linearGradient id="fadeG" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#f8f5ec" stop-opacity="0"/>
       <stop offset="1" stop-color="#f8f5ec" stop-opacity="1"/>
     </linearGradient>
-    <linearGradient id="pillarG" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#d8d0c4"/>
-      <stop offset="0.5" stop-color="#e8e2d8"/>
-      <stop offset="1" stop-color="#c8c0b4"/>
-    </linearGradient>
-    <!-- leaf -->
-    <g id="leaf">
-      <ellipse rx="6" ry="2.5" fill="#5a9648"/>
-    </g>
-    <g id="leafD">
-      <ellipse rx="5" ry="2" fill="#4a8638"/>
-    </g>
-    <!-- small white flower -->
-    <g id="wfl">
-      <circle r="4" fill="#ffffff"/>
-      <circle r="1.5" fill="#8cc97a"/>
-    </g>
-    <!-- pink flower -->
-    <g id="pfl">
-      <circle r="5" fill="#f5b8c4"/>
-      <circle r="2" fill="#eb9aaa"/>
-    </g>
-    <!-- ivy leaf -->
-    <g id="ivy">
-      <path d="M0 -4 C -4 -2 -5 2 -3 5 C 0 3 0 3 3 5 C 5 2 4 -2 0 -4 Z" fill="#6db35a"/>
+    <!-- small sketched daisy -->
+    <g id="daisy">
+      <g class="line-thin fill-white">
+        <ellipse cx="0" cy="-3" rx="1" ry="2.4"/>
+        <ellipse cx="2.8" cy="-0.9" rx="1" ry="2.4" transform="rotate(72 2.8 -0.9)"/>
+        <ellipse cx="1.7" cy="2.5" rx="1" ry="2.4" transform="rotate(144 1.7 2.5)"/>
+        <ellipse cx="-1.7" cy="2.5" rx="1" ry="2.4" transform="rotate(216 -1.7 2.5)"/>
+        <ellipse cx="-2.8" cy="-0.9" rx="1" ry="2.4" transform="rotate(288 -2.8 -0.9)"/>
+      </g>
+      <circle r="1.1" class="fill-mid"/>
     </g>
   </defs>
 
-  <!-- Ground / grass area -->
-  <ellipse cx="200" cy="310" rx="220" ry="50" fill="url(#grassG)" opacity="0.6"/>
-  
-  <!-- Stone path -->
-  <path d="M160 320 L 240 320 L 218 220 L 182 220 Z" fill="url(#pathG)"/>
-  <g stroke="#c4aa78" stroke-width="1" opacity="0.5">
-    <path d="M180 235 L 220 235"/>
-    <path d="M176 255 L 224 255"/>
-    <path d="M172 278 L 228 278"/>
-    <path d="M166 302 L 234 302"/>
-  </g>
+  <!-- ===== COUPLE FROM BEHIND (black & white sketch) ===== -->
+  <g transform="translate(200 246)">
+    <!-- ground shadow (light hatch) -->
+    <ellipse cx="2" cy="52" rx="56" ry="10" class="fill-light"/>
 
-  <!-- Gate pillars -->
-  <rect x="135" y="175" width="14" height="95" fill="url(#pillarG)" rx="2"/>
-  <rect x="133" y="170" width="18" height="8" fill="#d0c8bc" rx="1"/>
-  <rect x="251" y="175" width="14" height="95" fill="url(#pillarG)" rx="2"/>
-  <rect x="249" y="170" width="18" height="8" fill="#d0c8bc" rx="1"/>
-  
-  <!-- Iron fence -->
-  <g stroke="#3a3a3a" stroke-width="1.5" fill="none" opacity="0.7">
-    <!-- Left fence -->
-    <path d="M90 270 L 135 270"/>
-    <path d="M90 240 L 135 240"/>
-    <path d="M95 240 L 95 270"/><path d="M105 240 L 105 270"/><path d="M115 240 L 115 270"/><path d="M125 240 L 125 270"/>
-    <!-- Right fence -->
-    <path d="M265 270 L 310 270"/>
-    <path d="M265 240 L 310 240"/>
-    <path d="M275 240 L 275 270"/><path d="M285 240 L 285 270"/><path d="M295 240 L 295 270"/><path d="M305 240 L 305 270"/>
-    <!-- Gate bars -->
-    <path d="M155 180 L 155 270"/>
-    <path d="M165 180 L 165 270"/>
-    <path d="M175 180 L 175 270"/>
-    <path d="M225 180 L 225 270"/>
-    <path d="M235 180 L 235 270"/>
-    <path d="M245 180 L 245 270"/>
-    <!-- Gate horizontals -->
-    <path d="M149 200 L 180 200"/>
-    <path d="M149 250 L 180 250"/>
-    <path d="M220 200 L 251 200"/>
-    <path d="M220 250 L 251 250"/>
-  </g>
-
-  <!-- Ivy on fence/pillars -->
-  <use href="#ivy" transform="translate(92 265) scale(0.8)"/>
-  <use href="#ivy" transform="translate(100 258) scale(0.7)"/>
-  <use href="#ivy" transform="translate(118 262) scale(0.85)"/>
-  <use href="#ivy" transform="translate(130 255) scale(0.75)"/>
-  <use href="#ivy" transform="translate(280 265) scale(0.8)"/>
-  <use href="#ivy" transform="translate(295 260) scale(0.7)"/>
-  <use href="#ivy" transform="translate(305 268) scale(0.8)"/>
-  <use href="#ivy" transform="translate(270 258) scale(0.75)"/>
-  
-  <!-- Flowers at base of pillars -->
-  <use href="#wfl" transform="translate(140 268) scale(0.9)"/>
-  <use href="#pfl" transform="translate(148 272) scale(0.7)"/>
-  <use href="#leaf" transform="translate(144 275) rotate(30)"/>
-  <use href="#wfl" transform="translate(260 268) scale(0.9)"/>
-  <use href="#pfl" transform="translate(252 272) scale(0.7)"/>
-  <use href="#leaf" transform="translate(256 275) rotate(-30)"/>
-
-  <!-- ===== COUPLE FROM BEHIND ===== -->
-  <g transform="translate(200 245)">
-    <!-- Groom (left) -->
-    <g transform="translate(-18 0)">
-      <!-- Hair -->
-      <ellipse cx="0" cy="-62" rx="10" ry="9" fill="#8B6914"/>
-      <!-- Head -->
-      <ellipse cx="0" cy="-55" rx="9" ry="10" fill="#E8C8AE"/>
-      <!-- Neck -->
-      <rect x="-4" y="-46" width="8" height="6" fill="#E8C8AE"/>
-      <!-- Suit jacket -->
-      <path d="M-16 -40 C -18 -20 -18 25 -14 45 L 14 45 C 18 25 18 -20 16 -40 C 10 -42 -10 -42 -16 -40 Z" fill="#2C3E50"/>
-      <!-- Suit back seam -->
-      <path d="M0 -38 L 0 42" stroke="#1a2530" stroke-width="1" opacity="0.4"/>
-      <!-- Collar -->
-      <path d="M-8 -40 L -6 -32 L 0 -36 L 6 -32 L 8 -40" fill="#1a2530"/>
-      <!-- Arm (around bride) -->
-      <path d="M14 -30 C 28 -15 35 5 32 15" stroke="#2C3E50" stroke-width="10" fill="none" stroke-linecap="round"/>
-      <!-- Hand on bride's back -->
-      <ellipse cx="32" cy="18" rx="5" ry="4" fill="#E8C8AE"/>
-      <!-- Pants hint -->
-      <path d="M-10 45 L -12 75 M 10 45 L 12 75" stroke="#2C3E50" stroke-width="10" stroke-linecap="round"/>
+    <!-- ===== GROOM (left) ===== -->
+    <g transform="translate(-20 0)">
+      <!-- trousers -->
+      <path class="line fill-light" d="M-11 30 C -13 55 -14 78 -12 96 L -3 96 C -3 74 -2 52 -1 32 Z"/>
+      <path class="line fill-light" d="M1 32 C 2 52 3 74 3 96 L 12 96 C 14 78 13 55 11 30 Z"/>
+      <!-- shoes -->
+      <ellipse cx="-8" cy="98" rx="6" ry="3" class="fill-dark"/>
+      <ellipse cx="8" cy="98" rx="6" ry="3" class="fill-dark"/>
+      <!-- jacket -->
+      <path class="line fill-white" d="M-16 -30 C -20 -6 -19 20 -15 34 C -5 38 9 38 17 34 C 21 18 20 -8 16 -30 C 8 -35 -8 -35 -16 -30 Z"/>
+      <!-- jacket shading hatch -->
+      <path class="hatch" d="M-11 -22 C -13 0 -12 20 -10 32"/>
+      <path class="hatch" d="M-6 -24 C -8 -2 -7 18 -6 32"/>
+      <path class="line-thin" d="M1 -32 L 1 35"/>
+      <!-- collar -->
+      <path class="line fill-light" d="M-8 -31 L -5 -22 L 1 -27 L 7 -22 L 10 -31 C 4 -34 -3 -34 -8 -31 Z"/>
+      <!-- small cross pendant hint at the nape (Christian detail) -->
+      <path class="line-thin" d="M1 -30 v 5 M-1.5 -28 h 5" stroke="#2a2a2a"/>
+      <!-- neck with nape shading -->
+      <path class="line fill-light" d="M-4 -38 h 9 v 8 h -9 Z"/>
+      <path class="hatch" d="M-1 -37 v 6 M2 -37 v 6"/>
+      <!-- head (back) -->
+      <ellipse cx="0.5" cy="-46" rx="9.5" ry="10.5" class="line fill-light"/>
+      <!-- ear hints -->
+      <path class="line-thin" d="M-9 -46 c -2 0.5 -2 3 0 3"/>
+      <path class="line-thin" d="M10 -46 c 2 0.5 2 3 0 3"/>
+      <!-- hair: fuller crown, hairline, nape and strands -->
+      <path class="fill-hair" d="M-10 -45 C -12 -60 13 -61 11 -45 C 11 -41 9 -39 6 -37 C 8 -40 8 -45 7 -49 C 3 -52 -3 -52 -6 -49 C -7 -45 -7 -40 -5 -37 C -8 -39 -10 -41 -10 -45 Z"/>
+      <g class="line-thin" stroke="#111">
+        <path d="M-6 -51 C -4 -48 -3 -43 -4 -39"/>
+        <path d="M0 -53 C 0 -49 0 -44 -1 -40"/>
+        <path d="M5 -51 C 6 -48 6 -43 4 -39"/>
+      </g>
+      <!-- arm around bride -->
+      <path class="line" d="M15 -14 C 27 -6 34 2 36 10" stroke-width="8"/>
+      <ellipse cx="37" cy="12" rx="4.4" ry="3.5" class="line fill-light"/>
     </g>
-    
-    <!-- Bride (right) -->
-    <g transform="translate(18 0)">
-      <!-- Hair (auburn updo with decorations) -->
-      <ellipse cx="0" cy="-60" rx="12" ry="11" fill="#A0522D"/>
-      <ellipse cx="2" cy="-65" rx="8" ry="6" fill="#8B4513"/>
-      <!-- Hair flowers -->
-      <circle cx="6" cy="-68" r="2" fill="#f5b8c4"/>
-      <circle cx="10" cy="-64" r="1.5" fill="#ffffff"/>
-      <circle cx="8" cy="-60" r="1.5" fill="#f5b8c4"/>
-      <!-- Head -->
-      <ellipse cx="0" cy="-52" rx="8" ry="9" fill="#F5DEB3"/>
-      <!-- Neck -->
-      <rect x="-3" y="-44" width="6" height="5" fill="#F5DEB3"/>
-      <!-- Dress back (elegant with lace detail) -->
-      <path d="M-14 -39 C -16 -20 -22 30 -35 75 L 35 75 C 22 30 16 -20 14 -39 C 8 -41 -8 -41 -14 -39 Z" fill="#E8E4DE"/>
-      <!-- Dress back detail (low back) -->
-      <path d="M-10 -39 C -8 -30 8 -30 10 -39" fill="#F5DEB3"/>
-      <!-- Lace straps -->
-      <path d="M-10 -39 C -12 -42 -10 -44 -8 -42" stroke="#d0ccc6" stroke-width="2" fill="none"/>
-      <path d="M10 -39 C 12 -42 10 -44 8 -42" stroke="#d0ccc6" stroke-width="2" fill="none"/>
-      <!-- Dress lace overlay pattern -->
-      <path d="M-8 -20 Q 0 -15 8 -20 M-12 0 Q 0 8 12 0 M-18 25 Q 0 35 18 25" stroke="#d5d0ca" stroke-width="1" fill="none" opacity="0.6"/>
-      <!-- Dress flow/train -->
-      <ellipse cx="0" cy="75" rx="38" ry="8" fill="#E8E4DE"/>
-      <!-- Arm -->
-      <path d="M-14 -30 L -16 10" stroke="#F5DEB3" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+    <!-- ===== BRIDE (right) ===== -->
+    <g transform="translate(16 0)">
+      <!-- bridal veil flowing down the back (behind the gown) -->
+      <path class="line-thin fill-white" d="M-6 -50 C -16 -30 -20 20 -14 66 C -6 40 -4 0 0 -34 C 4 0 6 40 14 66 C 20 20 16 -30 6 -50 C 3 -53 -3 -53 -6 -50 Z" opacity="0.85"/>
+      <g class="hatch" opacity="0.8">
+        <path d="M-10 -20 C -12 12 -12 40 -10 60"/>
+        <path d="M0 -14 C 0 16 0 44 0 62"/>
+        <path d="M10 -20 C 12 12 12 40 10 60"/>
+      </g>
+      <!-- flowing gown + train -->
+      <path class="line fill-white" d="M-15 -6 C -20 20 -34 62 -46 104 C -20 112 30 112 52 104 C 34 60 20 18 15 -6 C 6 -10 -8 -10 -15 -6 Z"/>
+      <!-- skirt fold hatching -->
+      <path class="hatch" d="M-8 4 C -14 34 -24 68 -34 100"/>
+      <path class="hatch" d="M2 6 C 0 38 -1 72 -3 102"/>
+      <path class="hatch" d="M11 4 C 16 34 26 68 36 100"/>
+      <path class="line-thin" d="M-46 104 C -20 110 30 110 52 104"/>
+      <!-- lace bodice -->
+      <path class="line fill-light" d="M-13 -30 C -15 -14 -14 -2 -12 6 C -4 9 8 9 14 6 C 16 -4 16 -16 13 -30 C 6 -33 -7 -33 -13 -30 Z"/>
+      <!-- open back -->
+      <path class="fill-white" d="M-7 -28 C -8 -14 -7 -4 -5 3 C -1 5 3 5 6 3 C 8 -4 8 -15 6 -28 C 2 -30 -3 -30 -7 -28 Z"/>
+      <path class="line-thin" d="M-7 -28 C -8 -14 -7 -4 -5 3 M6 -28 C 8 -15 8 -4 6 3"/>
+      <!-- lace straps -->
+      <path class="line-thin" d="M-13 -30 C -14 -34 -11 -37 -8 -35"/>
+      <path class="line-thin" d="M13 -30 C 14 -34 11 -37 8 -35"/>
+      <!-- lace pattern -->
+      <g class="line-thin">
+        <path d="M-6 -22 q 6 4 12 0"/>
+        <path d="M-6 -12 q 6 4 12 0"/>
+        <path d="M-6 -2 q 6 4 12 0"/>
+      </g>
+      <!-- neck with nape shading -->
+      <path class="line fill-light" d="M-3 -38 h 7 v 8 h -7 Z"/>
+      <path class="hatch" d="M-1 -37 v 6 M2 -37 v 6"/>
+      <!-- head (back) -->
+      <ellipse cx="0.5" cy="-47" rx="8.5" ry="9.5" class="line fill-light"/>
+      <!-- ear hints -->
+      <path class="line-thin" d="M-8 -47 c -1.6 0.5 -1.6 2.6 0 2.6"/>
+      <path class="line-thin" d="M9 -47 c 1.6 0.5 1.6 2.6 0 2.6"/>
+      <!-- hair as a neat crown on the UPPER head only (leaves the head shape visible) -->
+      <path class="fill-hair" d="M-8 -48 C -9 -58 10 -59 9 -48 C 6 -51 3 -52 0.5 -52 C -2 -52 -5 -51 -8 -48 Z"/>
+      <!-- soft hairline sweeping down the sides -->
+      <path class="line-thin" stroke="#111" d="M-8 -48 C -9 -44 -8 -41 -7 -39 M9 -48 C 10 -44 9 -41 8 -39"/>
+      <g class="line-thin" stroke="#111">
+        <path d="M-4 -52 C -3 -50 -3 -47 -4 -45"/>
+        <path d="M0.5 -52 C 0.5 -50 0.5 -47 0 -45"/>
+        <path d="M4 -52 C 5 -50 5 -47 4 -45"/>
+      </g>
+      <!-- low bun sitting at the nape (below the head) -->
+      <ellipse cx="0.5" cy="-35" rx="4.6" ry="4" class="fill-hair"/>
+      <path class="line-thin" stroke="#000" d="M-3 -35 C -1 -37 3 -37 4 -35 M-3 -34 C -1 -32 3 -32 4 -34"/>
+      <!-- veil comb / tiara band at the crown -->
+      <path class="line-thin" d="M-6 -53 C -2 -56 2 -56 6 -53"/>
+      <!-- left arm -->
+      <path class="line" d="M-13 -12 C -18 -2 -20 8 -19 16" stroke-width="4.5"/>
     </g>
   </g>
 
-  <!-- More ground flowers -->
-  <use href="#leaf" transform="translate(100 290) rotate(20) scale(1.2)"/>
-  <use href="#leaf" transform="translate(115 295) rotate(-15) scale(1.1)"/>
-  <use href="#wfl" transform="translate(108 288) scale(1.1)"/>
-  <use href="#pfl" transform="translate(120 285) scale(0.9)"/>
-  
-  <use href="#leaf" transform="translate(300 290) rotate(-20) scale(1.2)"/>
-  <use href="#leaf" transform="translate(285 295) rotate(15) scale(1.1)"/>
-  <use href="#wfl" transform="translate(292 288) scale(1.1)"/>
-  <use href="#pfl" transform="translate(280 285) scale(0.9)"/>
+  <!-- Sketched daisies scattered on the meadow -->
+  <use href="#daisy" transform="translate(80 296) scale(1.1)"/>
+  <use href="#daisy" transform="translate(105 286) scale(0.9)"/>
+  <use href="#daisy" transform="translate(128 300) scale(1)"/>
+  <use href="#daisy" transform="translate(258 294) scale(0.9)"/>
+  <use href="#daisy" transform="translate(288 302) scale(1.05)"/>
+  <use href="#daisy" transform="translate(318 288) scale(0.9)"/>
+  <use href="#daisy" transform="translate(345 300) scale(1)"/>
+  <use href="#daisy" transform="translate(52 292) scale(0.95)"/>
 
-  <!-- Cream fade at the base: blends the scene seamlessly into the card body -->
+  <!-- Cream fade at the base -->
   <rect x="0" y="255" width="400" height="65" fill="url(#fadeG)"/>
 </svg>
