@@ -121,7 +121,7 @@ body::before {
   transform: translateY(0);
   transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.7s, opacity 0.7s ease 0.7s;
 }
-.env-letter-cross { color: var(--gold); font-size: clamp(20px, 5vw, 26px); }
+.env-letter-heart { color: #c98a8a; font-size: clamp(20px, 5vw, 26px); }
 .env-letter-names {
   font-family: 'Parisienne', 'Great Vibes', cursive;
   font-weight: 400;
@@ -197,7 +197,7 @@ body::before {
   border: 1px dashed rgba(230, 207, 148, 0.5);
   pointer-events: none;
 }
-.env-seal .seal-cross { font-size: 0.55em; margin-bottom: 1px; }
+.env-seal .seal-heart { font-size: 0.55em; margin-bottom: 1px; }
 .env-seal .seal-initials { display: inline-flex; align-items: center; gap: 2px; }
 .env-seal em { font-size: 0.55em; font-style: italic; }
 .env-hint {
@@ -310,7 +310,7 @@ body::before {
 .hero-section {
   position: relative;
   background:
-    url('assets/wedding-scene.svg') center bottom / cover no-repeat,
+    url('assets/wedding-scene.svg') center center / cover no-repeat,
     linear-gradient(180deg, #fdfaf2 0%, #faf6ed 55%, #f8f5ec 100%);
   min-height: 85vh;
   display: flex;
@@ -447,7 +447,7 @@ body::before {
 }
 .hero-verse {
   position: relative;
-  margin: 0 auto 18px;
+  margin: -28px auto 18px;
   padding: 4px 10px;
   max-width: 440px;
   z-index: 2;
@@ -475,6 +475,13 @@ body::before {
   font-size: 13px;
   letter-spacing: 2px;
   color: var(--gold-deep);
+}
+.hero-verse .hearts-full-of-love {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(20px, 5vw, 28px);
+  color: var(--gold);
+  margin-top: 14px;
+  letter-spacing: 1px;
 }
 
 .scroll-prompt {
@@ -695,7 +702,7 @@ body::before {
   color: var(--gold-deep);
   margin-bottom: 15px;
 }
-.closing-section .blessing { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--ink-soft); margin-top: 8px; }
+.closing-section .blessing { font-family: 'Great Vibes', cursive; font-size: 24px; color: var(--burgundy-deep); margin-top: 20px; }
 .closing-section .hope-text {
   font-family: 'Great Vibes', cursive;
   font-size: clamp(24px, 6vw, 34px);
@@ -858,13 +865,13 @@ body::before {
     <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Tap to open your wedding invitation">
       <img class="env-paper" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNTQwIiBmaWxsPSJub25lIj4NCiAgPGRlZnM+DQogICAgPGxpbmVhckdyYWRpZW50IGlkPSJwYXBlciIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI2YyZjlmNCIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZTZmMmVhIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8ZyBpZD0iZlNwcmlnIiBzdHJva2U9IiNiZmUwY2IiIHN0cm9rZS13aWR0aD0iMS42IiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjkiPg0KICAgICAgPHBhdGggZD0iTTAgMCBDIDIwIC0zMCA0MCAtNzAgNDYgLTEyMCIvPg0KICAgICAgPGVsbGlwc2UgY3g9IjEwIiBjeT0iLTIyIiByeD0iNyIgcnk9IjMuNCIgdHJhbnNmb3JtPSJyb3RhdGUoLTM1IDEwIC0yMikiIGZpbGw9IiNkNmVjZGQiLz4NCiAgICAgIDxlbGxpcHNlIGN4PSIxOCIgY3k9Ii00NCIgcng9IjciIHJ5PSIzLjQiIHRyYW5zZm9ybT0icm90YXRlKC00MCAxOCAtNDQpIiBmaWxsPSIjZDZlY2RkIi8+DQogICAgICA8ZWxsaXBzZSBjeD0iMjgiIGN5PSItNzAiIHJ4PSI3IiByeT0iMy40IiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUgMjggLTcwKSIgZmlsbD0iI2Q2ZWNkZCIvPg0KICAgICAgPGVsbGlwc2UgY3g9IjM4IiBjeT0iLTk2IiByeD0iNiIgcnk9IjMiIHRyYW5zZm9ybT0icm90YXRlKC01MCAzOCAtOTYpIiBmaWxsPSIjZDZlY2RkIi8+DQogICAgICA8Y2lyY2xlIGN4PSI0IiBjeT0iLTE2IiByPSI2IiBmaWxsPSIjZWVmN2YxIiBzdHJva2U9IiNiZmUwY2IiLz4NCiAgICAgIDxjaXJjbGUgY3g9IjE0IiBjeT0iLTM4IiByPSI1IiBmaWxsPSIjZWVmN2YxIiBzdHJva2U9IiNiZmUwY2IiLz4NCiAgICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iLTYyIiByPSI1IiBmaWxsPSIjZWVmN2YxIiBzdHJva2U9IiNiZmUwY2IiLz4NCiAgICA8L2c+DQogIDwvZGVmcz4NCg0KICA8IS0tIEVudmVsb3BlIGJvZHkgLS0+DQogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI0MDAiIGhlaWdodD0iNTQwIiByeD0iNiIgZmlsbD0idXJsKCNwYXBlcikiLz4NCg0KICA8IS0tIEVtYm9zc2VkIGZsb3JhbCBwYXR0ZXJuLCB0aWxlZCBzb2Z0bHkgYWNyb3NzIHRoZSBwYXBlciAtLT4NCiAgPGcgb3BhY2l0eT0iMC41NSI+DQogICAgPHVzZSBocmVmPSIjZlNwcmlnIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3MCA1MDApIHNjYWxlKDEuMSkiLz4NCiAgICA8dXNlIGhyZWY9IiNmU3ByaWciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1MCA1MjApIHNjYWxlKDAuOSkgcm90YXRlKDgpIi8+DQogICAgPHVzZSBocmVmPSIjZlNwcmlnIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNTAgNTIwKSBzY2FsZSgwLjkpIHJvdGF0ZSgtOCkiLz4NCiAgICA8dXNlIGhyZWY9IiNmU3ByaWciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMzMCA1MDApIHNjYWxlKDEuMSkgcm90YXRlKC00KSIvPg0KICAgIDx1c2UgaHJlZj0iI2ZTcHJpZyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTAgMzIwKSBzY2FsZSgxLjApIHJvdGF0ZSg2KSIvPg0KICAgIDx1c2UgaHJlZj0iI2ZTcHJpZyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzUwIDMyMCkgc2NhbGUoMS4wKSByb3RhdGUoLTYpIi8+DQogICAgPHVzZSBocmVmPSIjZlNwcmlnIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTAgMjEwKSBzY2FsZSgwLjg1KSByb3RhdGUoMzApIi8+DQogICAgPHVzZSBocmVmPSIjZlNwcmlnIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyOTAgMjEwKSBzY2FsZSgwLjg1KSByb3RhdGUoLTMwKSIvPg0KICAgIDx1c2UgaHJlZj0iI2ZTcHJpZyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjAwIDE1MCkgc2NhbGUoMC44KSIvPg0KICA8L2c+DQoNCiAgPCEtLSBDZW50ZXIgZm9sZCBsaW5lcyBmb3JtaW5nIHRoZSBwb2NrZXQgLS0+DQogIDxwYXRoIGQ9Ik0wIDQwIEwgMjAwIDI1MCBMIDQwMCA0MCIgc3Ryb2tlPSIjYjZkY2MzIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC44Ii8+DQogIDxwYXRoIGQ9Ik0wIDQwIEwgMjAwIDI1MCBMIDQwMCA0MCBMIDQwMCAwIEwgMCAwIFoiIGZpbGw9IiNlYWY1ZWUiIG9wYWNpdHk9IjAuNSIvPg0KPC9zdmc+DQo=" alt="" aria-hidden="true" />
       <div class="env-letter" aria-hidden="true">
-        <span class="env-letter-cross">&#10013;</span>
+        <span class="env-letter-heart">&#10084;</span>
         <span class="env-letter-names">Albin &amp; Treesa</span>
         <span class="env-letter-sub">You&rsquo;re Invited</span>
       </div>
       <div class="env-pocket" aria-hidden="true"></div>
       <div class="env-flap"></div>
-      <div class="env-seal" aria-hidden="true"><span class="seal-cross">&#10013;</span><span class="seal-initials">A<em>&amp;</em>T</span></div>
+      <div class="env-seal" aria-hidden="true"><span class="seal-heart">&#10084;</span><span class="seal-initials">A<em>&amp;</em>T</span></div>
       <p class="env-hint">Tap to open</p>
     </div>
   </div>
@@ -881,6 +888,7 @@ body::before {
               &ldquo;I have found the one whom my soul loves.&rdquo;
             </p>
             <p class="verse-ref-small">&mdash; Song of Solomon 3:4</p>
+            <p class="hearts-full-of-love">With Hearts Full of Love</p>
           </div>
           <h1 class="couple-names">
             <span class="name-first">Albin</span>
@@ -910,7 +918,7 @@ body::before {
                 <span class="date-part">2026</span>
                 <span class="date-sprig date-sprig-right" aria-hidden="true">&#127807;</span>
               </p>
-              <p class="wedding-time-formal"><span class="clock-icon" aria-hidden="true">&#128340;</span> AT 11.00 AM</p>
+              <p class="wedding-time-formal"><span class="clock-icon" aria-hidden="true">&#128340;</span> AT 11:00 AM</p>
             </div>
             <canvas class="scratch-canvas" id="scratchCanvas" aria-label="Scratch to reveal the wedding date"></canvas>
           </div>
@@ -930,8 +938,7 @@ body::before {
 
         <div class="location-section reception-section">
           <p class="section-title">Reception</p>
-          <p class="reception-invite">With joyful hearts, we invite you to celebrate with us</p>
-          <p class="location-datetime">Following the wedding ceremony, please join us for a delightful lunch at the Church Auditorium.</p>
+          <p class="location-datetime">After the wedding ceremony, please join us for the reception at the Church Auditorium.</p>
         </div>
 
         <div class="countdown-section">
@@ -951,8 +958,7 @@ body::before {
             &ldquo;Therefore what God has joined together,<br />let no one separate.&rdquo;
           </p>
           <p class="verse-ref-small">&mdash; Mark 10:9</p>
-          <p class="blessing">Your presence and prayers are the greatest blessing</p>
-          <p class="hope-text">Hope to see you there!</p>
+          <p class="blessing">We eagerly await your gracious presence on our special day</p>
         </div>
       </div>
 
@@ -1180,13 +1186,13 @@ body::before {
     canvas.style.height = h + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    // Gold foil cover
+    // Green foil cover
     const grad = ctx.createLinearGradient(0, 0, w, h);
-    grad.addColorStop(0, '#8f6b2c');
-    grad.addColorStop(0.25, '#d9bd74');
-    grad.addColorStop(0.5, '#f3e4b8');
-    grad.addColorStop(0.75, '#cba85c');
-    grad.addColorStop(1, '#8f6b2c');
+    grad.addColorStop(0, '#2f6b3a');
+    grad.addColorStop(0.25, '#5a9c68');
+    grad.addColorStop(0.5, '#bfe0cb');
+    grad.addColorStop(0.75, '#4f8f5e');
+    grad.addColorStop(1, '#2f6b3a');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
 
@@ -1199,7 +1205,7 @@ body::before {
     }
 
     // Cover label
-    ctx.fillStyle = 'rgba(80, 55, 15, 0.75)';
+    ctx.fillStyle = 'rgba(20, 60, 30, 0.8)';
     ctx.font = "600 16px 'Cormorant Garamond', serif";
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
