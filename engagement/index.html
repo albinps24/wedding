@@ -680,10 +680,18 @@ body {
 }
 .join-invite {
   font-size: clamp(13px, 3.6vw, 16px);
-  line-height: 1.7;
-  opacity: 0.75;
-  max-width: 240px;
-  margin: 16px auto 0;
+  line-height: 1.75;
+  opacity: 0.8;
+  max-width: 280px;
+  margin: 12px auto 0;
+  text-align: center;
+}
+.arch-frame-join .hero-label-plain { margin-bottom: 4px; }
+.arch-divider {
+  width: 60px;
+  height: 1px;
+  background: rgba(176, 132, 58, 0.6);
+  margin: 22px auto;
 }
 
 /* ---------------- Reveal on scroll ---------------- */
@@ -782,13 +790,15 @@ body {
       </div>
     </section>
 
-    <!-- Map & Calendar -->
+    <!-- Reception + Map & Calendar -->
     <section class="panel main-card reveal">
       <div class="hero">
         <div class="hero-art">
           <img class="hero-art-img" src="../assets/crimson-scroll-bg.webp" alt="" aria-hidden="true" />
           <div class="arch-frame arch-frame-join">
-            <div class="hero-ornament" aria-hidden="true">&#10087;</div>
+            <div class="hero-label hero-label-plain">Reception</div>
+            <p class="hero-invite join-invite">After the wedding ceremony, please join us for the reception at the Church Auditorium.</p>
+            <div class="arch-divider" aria-hidden="true"></div>
             <div class="hero-label hero-label-plain">Join Us</div>
             <p class="hero-invite join-invite">With hearts full of love and joy, we invite you to share in the celebration of our marriage and the beginning of our forever.</p>
             <div class="action-row">
