@@ -819,7 +819,8 @@ body {
         stage.classList.add('hidden');
         scroll.classList.add('show');
         revealOnScroll();
-        tryPlayMusic();
+        /* music disabled for now */
+        /* tryPlayMusic(); */
       }, 1400);
     }
     envelope.addEventListener('click', openEnvelope);
@@ -848,19 +849,22 @@ body {
     var calBtn = document.getElementById('calBtn');
     if (calBtn) {
       calBtn.addEventListener('click', function () {
-        var dtStart = '20261121T163000';
-        var dtEnd = '20261121T183000';
         var ics = [
           'BEGIN:VCALENDAR',
           'VERSION:2.0',
           'PRODID:-//Albin & Treesa//Betrothal//EN',
           'BEGIN:VEVENT',
           'UID:' + Date.now() + '@albin-treesa.world',
-          'DTSTART:' + dtStart,
-          'DTEND:' + dtEnd,
+          'DTSTART;VALUE=DATE:20261121',
+          'DTEND;VALUE=DATE:20261122',
           'SUMMARY:Betrothal of Albin & Treesa',
           'LOCATION:St. Sebastian\'s Church, Ayarkunnam',
-          'DESCRIPTION:Join us to celebrate the betrothal of Albin & Treesa.',
+          'DESCRIPTION:Join us to celebrate the betrothal of Albin & Treesa at 4:00 PM.',
+          'BEGIN:VALARM',
+          'ACTION:DISPLAY',
+          'DESCRIPTION:Betrothal of Albin & Treesa tomorrow',
+          'TRIGGER:-PT15H',
+          'END:VALARM',
           'END:VEVENT',
           'END:VCALENDAR'
         ].join('\r\n');
