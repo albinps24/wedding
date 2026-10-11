@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Albin &amp; Treesa — Engagement Invitation</title>
-  <meta name="description" content="You are cordially invited to the engagement of Albin & Treesa on 5th January 2025." />
+  <title>Albin &amp; Treesa — Betrothal Invitation</title>
+  <meta name="description" content="You are cordially invited to the betrothal of Albin & Treesa on 5th January 2025." />
   <!-- WhatsApp / social link preview -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Albin &amp; Treesa" />
   <meta property="og:title" content="Albin &amp; Treesa" />
-  <meta property="og:description" content="Our Engagement — Saturday, 5th January 2025" />
+  <meta property="og:description" content="Our Betrothal — Saturday, 5th January 2025" />
   <meta property="og:url" content="https://albin-treesa.world/engagement/" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Albin &amp; Treesa" />
-  <meta name="twitter:description" content="Our Engagement — Saturday, 5th January 2025" />
+  <meta name="twitter:description" content="Our Betrothal — Saturday, 5th January 2025" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Parisienne&family=Pinyon+Script&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -297,20 +297,36 @@ body {
   padding: 6px 18px;
   border: 1px solid rgba(176, 132, 58, 0.8);
   border-radius: 2px;
-  margin-bottom: 16px;
+  margin-top: 4px;
 }
 .hero-invite {
   font-family: 'Noto Serif', Georgia, serif;
   font-style: italic;
   font-weight: 300;
-  font-size: 13px;
+  font-size: 12px;
   color: #3d0a10;
   opacity: 0.55;
   line-height: 1.85;
   margin: 15px auto 24px;
-  max-width: 290px;
 }
-.couple-names { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: 20px 0 10px; }
+.hero-verse-line {
+  font-family: 'Cormorant Garamond', 'Noto Serif', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(13px, 3.4vw, 16px);
+  line-height: 1.6;
+  color: var(--burgundy);
+  margin-top: 16px;
+}
+.hero-verse-ref {
+  display: inline-block;
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-top: 6px;
+}
+.couple-names { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 20px 0 10px; }
 .couple-names .name-first,
 .couple-names .name-second {
   font-family: 'Cormorant Garamond', 'Noto Serif', Georgia, serif;
@@ -331,7 +347,7 @@ body {
   font-style: italic;
   font-size: clamp(20px, 5vw, 26px);
   color: var(--gold-deep);
-  margin: 6px 0;
+  margin: 0;
 }
 .couple-names .amp::before,
 .couple-names .amp::after {
@@ -343,7 +359,7 @@ body {
   color: var(--burgundy-soft);
   font-size: 14px;
   line-height: 0.7;
-  margin: 6px 0 2px;
+  margin: 0;
   opacity: 0.7;
   animation: chevBounce 2s ease-in-out infinite;
 }
@@ -643,12 +659,12 @@ body {
 
   <!-- Envelope: tap to open -->
   <div class="envelope-stage" id="envelopeStage">
-    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Tap to open your engagement invitation">
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Tap to open your betrothal invitation">
       <div class="env-body"></div>
       <div class="env-letter">
         <span class="env-letter-heart" aria-hidden="true">&#10084;</span>
         <span class="env-letter-names">Albin &amp; Treesa</span>
-        <span class="env-letter-sub">Engagement</span>
+        <span class="env-letter-sub">Betrothal</span>
       </div>
       <div class="env-pocket"></div>
       <div class="env-flap"></div>
@@ -666,8 +682,9 @@ body {
         <div class="hero-art">
           <div class="arch-frame">
             <div class="hero-ornament" aria-hidden="true">&#10087;</div>
-            <div class="hero-label">Engagement</div>
-            <p class="hero-invite">Together with our families we joyfully invite you<br>to celebrate our engagement</p>
+            <div class="hero-label">Betrothal</div>
+            <p class="hero-verse-line">&ldquo;Therefore what God has joined together, let no one separate.&rdquo;<br><span class="hero-verse-ref">Mark 10:9</span></p>
+            <p class="hero-invite">Together with our families we joyfully invite you<br>to celebrate our betrothal</p>
             <div class="couple-names">
               <span class="name-first">Albin</span>
               <span class="amp">&amp;</span>
@@ -903,7 +920,7 @@ body {
     var shareBtn = document.getElementById('shareBtn');
     if (shareBtn) {
       shareBtn.addEventListener('click', function () {
-        var data = { title: 'Albin & Treesa', text: 'Our Engagement — 5th January 2025', url: location.href };
+        var data = { title: 'Albin & Treesa', text: 'Our Betrothal — 5th January 2025', url: location.href };
         if (navigator.share) {
           navigator.share(data).catch(function () {});
         } else if (navigator.clipboard) {
