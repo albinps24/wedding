@@ -755,7 +755,7 @@ body {
 </head>
 <body>
   <!-- Background music -->
-  <audio id="bgMusic" src="../assets/music.mp3" loop preload="auto"></audio>
+  <audio id="bgMusic" src="../assets/Anbil Avan.mp3" loop preload="auto"></audio>
   <button id="musicToggle" class="music-toggle" type="button" aria-label="Toggle music" hidden>
     <span class="music-icon" aria-hidden="true">&#128266;</span>
   </button>
@@ -864,8 +864,7 @@ body {
         stage.classList.add('hidden');
         scroll.classList.add('show');
         revealOnScroll();
-        /* music disabled for now */
-        /* tryPlayMusic(); */
+        tryPlayMusic();
       }, 1400);
     }
     envelope.addEventListener('click', openEnvelope);
