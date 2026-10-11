@@ -102,6 +102,80 @@ body::before {
   transition: opacity 0.7s ease, visibility 0.7s ease;
 }
 .envelope-stage.hidden { opacity: 0; visibility: hidden; }
+
+/* ---------------- Opening card ---------------- */
+.opening-card {
+  position: relative;
+  width: min(86vw, 340px);
+  aspect-ratio: 340 / 460;
+  background: linear-gradient(180deg, #fffdf8, #fbf8f0);
+  border-radius: 10px;
+  box-shadow: 0 30px 60px -28px rgba(31, 107, 67, 0.4);
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  text-align: center;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.opening-card:focus-visible { box-shadow: 0 0 0 3px rgba(185, 143, 67, 0.6), 0 30px 60px -28px rgba(31, 107, 67, 0.4); }
+.opening-monogram {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(44px, 13vw, 72px);
+  color: var(--burgundy-deep);
+  letter-spacing: 2px;
+  background: linear-gradient(100deg, var(--burgundy-deep) 20%, var(--gold) 50%, var(--burgundy-deep) 80%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: monogramIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) both, monogramShimmer 4.5s ease-in-out 1.2s infinite;
+}
+@keyframes monogramIn {
+  0%   { opacity: 0; transform: scale(0.7); letter-spacing: 10px; }
+  100% { opacity: 1; transform: scale(1); letter-spacing: 2px; }
+}
+@keyframes monogramShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .opening-monogram { animation: none; opacity: 0.5; }
+}
+/* On open: monogram + text fade out first, then the card fades away */
+.opening-card.open .opening-monogram,
+.opening-card.open .opening-invite,
+.opening-card.open .opening-hint {
+  animation: none;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.opening-card.open {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.5s ease 0.35s, transform 0.5s ease 0.35s;
+  pointer-events: none;
+}
+.opening-invite {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(16px, 4.4vw, 20px);
+  color: var(--ink-soft);
+}
+.opening-hint {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 10px;
+  color: var(--gold-deep);
+  animation: hintPulse 2s ease-in-out infinite;
+}
+
 .envelope {
   position: relative;
   width: min(88vw, 380px);
@@ -886,17 +960,10 @@ body::before {
 
   <!-- Envelope: tap to open -->
   <div class="envelope-stage" id="envelopeStage">
-    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Tap to open your wedding invitation">
-      <img class="env-paper" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNTQwIiBmaWxsPSJub25lIj4NCiAgPGRlZnM+DQogICAgPGxpbmVhckdyYWRpZW50IGlkPSJwYXBlciIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI2YyZjlmNCIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZTZmMmVhIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8ZyBpZD0iZlNwcmlnIiBzdHJva2U9IiNiZmUwY2IiIHN0cm9rZS13aWR0aD0iMS42IiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjkiPg0KICAgICAgPHBhdGggZD0iTTAgMCBDIDIwIC0zMCA0MCAtNzAgNDYgLTEyMCIvPg0KICAgICAgPGVsbGlwc2UgY3g9IjEwIiBjeT0iLTIyIiByeD0iNyIgcnk9IjMuNCIgdHJhbnNmb3JtPSJyb3RhdGUoLTM1IDEwIC0yMikiIGZpbGw9IiNkNmVjZGQiLz4NCiAgICAgIDxlbGxpcHNlIGN4PSIxOCIgY3k9Ii00NCIgcng9IjciIHJ5PSIzLjQiIHRyYW5zZm9ybT0icm90YXRlKC00MCAxOCAtNDQpIiBmaWxsPSIjZDZlY2RkIi8+DQogICAgICA8ZWxsaXBzZSBjeD0iMjgiIGN5PSItNzAiIHJ4PSI3IiByeT0iMy40IiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUgMjggLTcwKSIgZmlsbD0iI2Q2ZWNkZCIvPg0KICAgICAgPGVsbGlwc2UgY3g9IjM4IiBjeT0iLTk2IiByeD0iNiIgcnk9IjMiIHRyYW5zZm9ybT0icm90YXRlKC01MCAzOCAtOTYpIiBmaWxsPSIjZDZlY2RkIi8+DQogICAgICA8Y2lyY2xlIGN4PSI0IiBjeT0iLTE2IiByPSI2IiBmaWxsPSIjZWVmN2YxIiBzdHJva2U9IiNiZmUwY2IiLz4NCiAgICAgIDxjaXJjbGUgY3g9IjE0IiBjeT0iLTM4IiByPSI1IiBmaWxsPSIjZWVmN2YxIiBzdHJva2U9IiNiZmUwY2IiLz4NCiAgICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iLTYyIiByPSI1IiBmaWxsPSIjZWVmN2YxIiBzdHJva2U9IiNiZmUwY2IiLz4NCiAgICA8L2c+DQogIDwvZGVmcz4NCg0KICA8IS0tIEVudmVsb3BlIGJvZHkgLS0+DQogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI0MDAiIGhlaWdodD0iNTQwIiByeD0iNiIgZmlsbD0idXJsKCNwYXBlcikiLz4NCg0KICA8IS0tIEVtYm9zc2VkIGZsb3JhbCBwYXR0ZXJuLCB0aWxlZCBzb2Z0bHkgYWNyb3NzIHRoZSBwYXBlciAtLT4NCiAgPGcgb3BhY2l0eT0iMC41NSI+DQogICAgPHVzZSBocmVmPSIjZlNwcmlnIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3MCA1MDApIHNjYWxlKDEuMSkiLz4NCiAgICA8dXNlIGhyZWY9IiNmU3ByaWciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1MCA1MjApIHNjYWxlKDAuOSkgcm90YXRlKDgpIi8+DQogICAgPHVzZSBocmVmPSIjZlNwcmlnIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNTAgNTIwKSBzY2FsZSgwLjkpIHJvdGF0ZSgtOCkiLz4NCiAgICA8dXNlIGhyZWY9IiNmU3ByaWciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMzMCA1MDApIHNjYWxlKDEuMSkgcm90YXRlKC00KSIvPg0KICAgIDx1c2UgaHJlZj0iI2ZTcHJpZyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTAgMzIwKSBzY2FsZSgxLjApIHJvdGF0ZSg2KSIvPg0KICAgIDx1c2UgaHJlZj0iI2ZTcHJpZyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzUwIDMyMCkgc2NhbGUoMS4wKSByb3RhdGUoLTYpIi8+DQogICAgPHVzZSBocmVmPSIjZlNwcmlnIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTAgMjEwKSBzY2FsZSgwLjg1KSByb3RhdGUoMzApIi8+DQogICAgPHVzZSBocmVmPSIjZlNwcmlnIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyOTAgMjEwKSBzY2FsZSgwLjg1KSByb3RhdGUoLTMwKSIvPg0KICAgIDx1c2UgaHJlZj0iI2ZTcHJpZyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjAwIDE1MCkgc2NhbGUoMC44KSIvPg0KICA8L2c+DQoNCiAgPCEtLSBDZW50ZXIgZm9sZCBsaW5lcyBmb3JtaW5nIHRoZSBwb2NrZXQgLS0+DQogIDxwYXRoIGQ9Ik0wIDQwIEwgMjAwIDI1MCBMIDQwMCA0MCIgc3Ryb2tlPSIjYjZkY2MzIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC44Ii8+DQogIDxwYXRoIGQ9Ik0wIDQwIEwgMjAwIDI1MCBMIDQwMCA0MCBMIDQwMCAwIEwgMCAwIFoiIGZpbGw9IiNlYWY1ZWUiIG9wYWNpdHk9IjAuNSIvPg0KPC9zdmc+DQo=" alt="" aria-hidden="true" />
-      <div class="env-letter" aria-hidden="true">
-        <span class="env-letter-heart">&#10084;</span>
-        <span class="env-letter-names">Albin &amp; Treesa</span>
-        <span class="env-letter-sub">You&rsquo;re Invited</span>
-      </div>
-      <div class="env-pocket" aria-hidden="true"></div>
-      <div class="env-flap"></div>
-      <div class="env-seal" aria-hidden="true"><span class="seal-heart">&#10084;</span><span class="seal-initials">A<em>&amp;</em>T</span></div>
-      <p class="env-hint">Tap to open</p>
+    <div class="opening-card" id="envelope" role="button" tabindex="0" aria-label="Tap to open your wedding invitation">
+      <div class="opening-monogram" aria-hidden="true">A &amp; T</div>
+      <div class="opening-invite">You&rsquo;re invited to our wedding</div>
+      <div class="opening-hint">Tap to open</div>
     </div>
   </div>
 
@@ -1007,18 +1074,14 @@ body::before {
     if (opened) return;
     opened = true;
     if (window.startWeddingMusic) window.startWeddingMusic();
-    envelope.classList.add('pressing');
-    setTimeout(() => {
-      envelope.classList.remove('pressing');
-      envelope.classList.add('open');
-    }, 320);
+    envelope.classList.add('open');
     setTimeout(() => {
       stage.classList.add('hidden');
       scroll.classList.add('show');
       const mainCard = document.querySelector('.main-card.reveal');
       if (mainCard) mainCard.classList.add('show');
       window.scrollTo({ top: 0, behavior: 'auto' });
-    }, 3400);
+    }, 900);
   }
 
   envelope.addEventListener('click', openEnvelope);
