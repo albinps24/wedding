@@ -653,7 +653,7 @@ body::before {
   justify-content: center;
   flex-wrap: wrap;
   padding: 20px 30px 30px;
-  background: linear-gradient(180deg, transparent, rgba(245, 242, 232, 0.5));
+  background: #f3e7d4;
 }
 
 /* ---------------- Countdown ---------------- */
@@ -758,12 +758,12 @@ body::before {
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  background: linear-gradient(135deg, var(--burgundy-deep), var(--burgundy));
-  color: var(--gold-light);
-  border: 1px solid rgba(230, 207, 148, 0.5);
+  background: linear-gradient(135deg, #6f7f4a, #8a9a63);
+  color: #fdfaf2;
+  border: 1px solid rgba(205, 214, 169, 0.7);
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 12px 26px -14px rgba(17, 79, 49, 0.75);
+  box-shadow: 0 12px 26px -14px rgba(111, 127, 74, 0.75);
 }
 .btn::after {
   content: "";
@@ -774,10 +774,15 @@ body::before {
   transform: skewX(-20deg);
   transition: left 0.6s ease;
 }
-.btn:hover { transform: translateY(-3px); box-shadow: 0 18px 32px -16px rgba(17, 79, 49, 0.9); }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 18px 32px -16px rgba(111, 127, 74, 0.9); }
 .btn:hover::after { left: 140%; }
-.btn.ghost { background: transparent; color: var(--burgundy); border-color: var(--gold); box-shadow: none; }
-.btn.ghost:hover { background: rgba(185, 143, 67, 0.10); }
+.btn.ghost {
+  background: linear-gradient(135deg, #6f7f4a, #8a9a63);
+  color: #fdfaf2;
+  border-color: rgba(205, 214, 169, 0.7);
+  box-shadow: 0 12px 26px -14px rgba(111, 127, 74, 0.75);
+}
+.btn.ghost:hover { background: linear-gradient(135deg, #647342, #7f8f58); }
 
 /* ---------------- Gold dust ---------------- */
 .golddust { position: fixed; inset: 0; pointer-events: none; z-index: 1; }

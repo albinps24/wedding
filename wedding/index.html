@@ -67,8 +67,8 @@ body::before {
   top: -40px;
   width: 12px; height: 12px;
   background:
-    radial-gradient(circle at 32% 26%, rgba(255,255,255,0.7), transparent 42%),
-    radial-gradient(circle at 30% 30%, #b6e0c4, #4aa574 78%);
+    radial-gradient(circle at 32% 26%, rgba(255,255,255,0.75), transparent 42%),
+    radial-gradient(circle at 30% 30%, #cdd6a9, #8a9a63 78%);
   border-radius: 80% 0 80% 0;
   opacity: 0.55;
   will-change: transform, opacity;
@@ -246,7 +246,7 @@ body::before {
   z-index: 2;
   max-width: 620px;
   margin: 0 auto;
-  padding: 0 16px 60px;
+  padding: 40px 16px 60px;
   opacity: 0;
   transition: opacity 0.8s ease;
 }
@@ -319,12 +319,13 @@ body::before {
 .hero-section {
   position: relative;
   background-image:
-    url('../assets/couple-walking.png'),
-    linear-gradient(180deg, #fdfaf2 0%, #faf6ed 55%, #f8f5ec 100%);
-  background-repeat: no-repeat, no-repeat;
-  background-position: center 94%, center center;
-  background-size: min(90%, 400px) auto, cover;
-  min-height: 85vh;
+    url('../assets/floral-arch-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% auto;
+  background-color: #f8f5ec;
+  aspect-ratio: 941 / 1672;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -333,7 +334,7 @@ body::before {
   position: absolute;
   left: 0; right: 0; bottom: 0;
   height: 90px;
-  background: linear-gradient(180deg, rgba(248, 245, 236, 0) 0%, #f8f5ec 100%);
+  background: linear-gradient(180deg, rgba(243, 231, 212, 0) 0%, rgba(243, 231, 212, 0.9) 100%);
   pointer-events: none;
   z-index: 3;
 }
@@ -361,9 +362,9 @@ body::before {
   100% { transform: translateX(-1px); }
 }
 .card-content {
-  padding: 30px 30px 0;
+  padding: 40px 28px 0;
   text-align: center;
-  background: linear-gradient(180deg, #f8f5ec 0%, #f8f5ec 100%);
+  background: #f3e7d4;
 }
 .wedding-day-title {
   font-family: 'Cormorant Garamond', serif;
@@ -395,7 +396,13 @@ body::before {
 }
 .wedding-date-formal .date-part { white-space: nowrap; }
 .wedding-date-formal .date-sep { color: var(--gold); font-weight: 400; }
-.wedding-date-formal .date-sprig { font-size: 0.8em; opacity: 0.85; }
+.wedding-date-formal .date-sprig {
+  display: inline-flex;
+  align-items: center;
+  color: #8a9a63;
+  opacity: 0.9;
+}
+.wedding-date-formal .date-sprig svg { width: 1em; height: 1em; display: block; }
 .wedding-date-formal .date-sprig-left { transform: scaleX(-1); }
 .wedding-time-formal {
   font-family: 'Cormorant Garamond', serif;
@@ -441,7 +448,7 @@ body::before {
   position: relative;
   z-index: 2;
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(14px, 3.6vw, 18px);
+  font-size: clamp(11px, 2.8vw, 14px);
   letter-spacing: 1px;
   line-height: 1.6;
   color: var(--burgundy-deep);
@@ -459,7 +466,7 @@ body::before {
 }
 .hero-verse {
   position: relative;
-  margin: -28px auto 18px;
+  margin: 24px auto 18px;
   padding: 4px 10px;
   max-width: 440px;
   z-index: 2;
@@ -646,7 +653,7 @@ body::before {
   justify-content: center;
   flex-wrap: wrap;
   padding: 20px 30px 30px;
-  background: linear-gradient(180deg, transparent, rgba(245, 242, 232, 0.5));
+  background: #f3e7d4;
 }
 
 /* ---------------- Countdown ---------------- */
@@ -751,12 +758,12 @@ body::before {
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  background: linear-gradient(135deg, var(--burgundy-deep), var(--burgundy));
-  color: var(--gold-light);
-  border: 1px solid rgba(230, 207, 148, 0.5);
+  background: linear-gradient(135deg, #6f7f4a, #8a9a63);
+  color: #fdfaf2;
+  border: 1px solid rgba(205, 214, 169, 0.7);
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 12px 26px -14px rgba(17, 79, 49, 0.75);
+  box-shadow: 0 12px 26px -14px rgba(111, 127, 74, 0.75);
 }
 .btn::after {
   content: "";
@@ -767,10 +774,15 @@ body::before {
   transform: skewX(-20deg);
   transition: left 0.6s ease;
 }
-.btn:hover { transform: translateY(-3px); box-shadow: 0 18px 32px -16px rgba(17, 79, 49, 0.9); }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 18px 32px -16px rgba(111, 127, 74, 0.9); }
 .btn:hover::after { left: 140%; }
-.btn.ghost { background: transparent; color: var(--burgundy); border-color: var(--gold); box-shadow: none; }
-.btn.ghost:hover { background: rgba(185, 143, 67, 0.10); }
+.btn.ghost {
+  background: linear-gradient(135deg, #6f7f4a, #8a9a63);
+  color: #fdfaf2;
+  border-color: rgba(205, 214, 169, 0.7);
+  box-shadow: 0 12px 26px -14px rgba(111, 127, 74, 0.75);
+}
+.btn.ghost:hover { background: linear-gradient(135deg, #647342, #7f8f58); }
 
 /* ---------------- Gold dust ---------------- */
 .golddust { position: fixed; inset: 0; pointer-events: none; z-index: 1; }
@@ -834,8 +846,8 @@ body::before {
 
 /* ---------------- Responsive ---------------- */
 @media (max-width: 460px) {
-  .scroll { padding: 0 12px 48px; }
-  .panel { padding: 32px 18px; }
+  .scroll { padding: 0 0 48px; }
+  .panel { padding: 32px 18px; margin-top: 0; }
   .hero-content { padding: 12px 16px 22px; }
   .card-content { padding: 26px 18px 0; }
   .countdown-grid { gap: 8px; }
@@ -892,7 +904,6 @@ body::before {
   <main class="scroll" id="invitation">
     <section class="panel main-card reveal">
       <div class="hero-section">
-        <img class="hanging-garland" src="../assets/hanging-garland.svg" alt="" aria-hidden="true" />
         <div class="hero-content">
           <div class="hero-verse">
             <p class="cross-icon">&#10013;</p>
@@ -922,13 +933,13 @@ body::before {
             <div class="scratch-content">
               <p class="wedding-weekday">Saturday</p>
               <p class="wedding-date-formal">
-                <span class="date-sprig date-sprig-left" aria-hidden="true">&#127807;</span>
+                <span class="date-sprig date-sprig-left" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 20 C 10 16 16 10 20 4"/><path d="M8 15 c -3 0 -4 -2 -4 -5 3 0 4 2 4 5 z"/><path d="M12 11 c 0 -3 2 -4 5 -4 0 3 -2 4 -5 4 z"/><path d="M9 13 c -3 -1 -3 -3 -2 -6 3 1 3 3 2 6 z"/></svg></span>
                 <span class="date-part">28</span>
                 <span class="date-sep">|</span>
                 <span class="date-part">NOVEMBER</span>
                 <span class="date-sep">|</span>
                 <span class="date-part">2026</span>
-                <span class="date-sprig date-sprig-right" aria-hidden="true">&#127807;</span>
+                <span class="date-sprig date-sprig-right" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 20 C 10 16 16 10 20 4"/><path d="M8 15 c -3 0 -4 -2 -4 -5 3 0 4 2 4 5 z"/><path d="M12 11 c 0 -3 2 -4 5 -4 0 3 -2 4 -5 4 z"/><path d="M9 13 c -3 -1 -3 -3 -2 -6 3 1 3 3 2 6 z"/></svg></span>
               </p>
               <p class="wedding-time-formal"><span class="clock-icon" aria-hidden="true">&#128340;</span> AT 11:00 AM</p>
             </div>
@@ -1197,13 +1208,13 @@ body::before {
     canvas.style.height = h + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    // Green foil cover
+    // Sage-green leaf foil cover
     const grad = ctx.createLinearGradient(0, 0, w, h);
-    grad.addColorStop(0, '#2f6b3a');
-    grad.addColorStop(0.25, '#5a9c68');
-    grad.addColorStop(0.5, '#bfe0cb');
-    grad.addColorStop(0.75, '#4f8f5e');
-    grad.addColorStop(1, '#2f6b3a');
+    grad.addColorStop(0, '#6f7f4a');
+    grad.addColorStop(0.25, '#8a9a63');
+    grad.addColorStop(0.5, '#cdd6a9');
+    grad.addColorStop(0.75, '#8a9a63');
+    grad.addColorStop(1, '#6f7f4a');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
 
@@ -1216,7 +1227,7 @@ body::before {
     }
 
     // Cover label
-    ctx.fillStyle = 'rgba(20, 60, 30, 0.8)';
+    ctx.fillStyle = 'rgba(60, 70, 35, 0.85)';
     ctx.font = "600 16px 'Cormorant Garamond', serif";
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
