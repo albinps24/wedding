@@ -687,18 +687,16 @@ body {
 .reveal.show { opacity: 1; transform: none; }
 
 @media (max-width: 480px) {
-  .scroll { padding: 0 12px 40px; }
+  /* hero cards fill the viewport width edge-to-edge on mobile */
+  .scroll { padding: 0 0 40px; }
   .countdown-grid { gap: 6px; }
   .gallery-grid img { height: 120px; }
-  /* hero cards fill the viewport width edge-to-edge on mobile */
   .main-card {
-    position: relative;
-    width: 100vw;
-    transform: translateX(-50%);
+    width: 100%;
     margin-top: 0;
   }
   /* no gap between consecutive full-width webp cards */
-  .main-card + .main-card { margin-top: -1px; }
+  .main-card + .main-card { margin-top: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .music-toggle.playing .music-icon { animation: none; }
