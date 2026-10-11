@@ -618,20 +618,24 @@ body {
 .reveal.show { opacity: 1; transform: none; }
 
 @media (max-width: 480px) {
-  .scroll { padding: 0 10px 40px; }
-  .panel { padding: 32px 18px; }
+  .scroll { padding: 0 0 40px; }
+  .panel { padding: 32px 18px; margin-left: 10px; margin-right: 10px; }
+  .main-card { margin-left: 0; margin-right: 0; }
   .countdown-grid { gap: 6px; }
   .gallery-grid img { height: 120px; }
   /* hero card fills the full screen width on mobile, no black border */
+  .scroll { padding-left: 0; padding-right: 0; }
   .main-card {
     width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
   }
-  .hero { min-height: auto; }
+  .hero { min-height: auto; padding: 0; }
   .hero-art {
     width: 100vw;
     max-width: 100vw;
+    margin: 0;
   }
   .hero-art::before { background-size: 100% 100%; }
 }
