@@ -990,20 +990,28 @@ body {
     var music = document.getElementById('bgMusic');
     var musicBtn = document.getElementById('musicToggle');
     var musicOn = false;
+    var musicIcon = musicBtn.querySelector('.music-icon');
+    function setMusicState(on) {
+      musicOn = on;
+      musicBtn.classList.toggle('playing', on);
+      musicBtn.classList.toggle('muted', !on);
+      if (musicIcon) { musicIcon.innerHTML = on ? '&#128266;' : '&#128263;'; }
+    }
     function tryPlayMusic() {
       musicBtn.hidden = false;
       music.volume = 0.5;
       var pr = music.play();
       if (pr && pr.then) {
         pr.then(function () {
-          musicOn = true;
-          musicBtn.classList.add('playing');
-        }).catch(function () { musicOn = false; });
+          setMusicState(true);
+        }).catch(function () { setMusicState(false); });
+      } else {
+        setMusicState(true);
       }
     }
     musicBtn.addEventListener('click', function () {
-      if (musicOn) { music.pause(); musicOn = false; musicBtn.classList.remove('playing'); }
-      else { music.play(); musicOn = true; musicBtn.classList.add('playing'); }
+      if (musicOn) { music.pause(); setMusicState(false); }
+      else { music.play(); setMusicState(true); }
     });
   })();
   </script>
