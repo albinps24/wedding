@@ -309,9 +309,12 @@ body::before {
 .main-card::before { display: none; }
 .hero-section {
   position: relative;
-  background:
-    url('../assets/couple-walking.png') center bottom / auto 310px no-repeat,
+  background-image:
+    url('../assets/couple-walking.png'),
     linear-gradient(180deg, #fdfaf2 0%, #faf6ed 55%, #f8f5ec 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center bottom, center center;
+  background-size: min(90%, 400px) auto, cover;
   min-height: 85vh;
   display: flex;
   flex-direction: column;
