@@ -790,7 +790,7 @@ body {
             <div class="hero-ornament" aria-hidden="true">&#10087;</div>
             <div class="hero-label">Betrothal</div>
             <p class="hero-verse-line">&ldquo;Two are better than one,<br>because they have a good return for their labor.&rdquo;<br><span class="hero-verse-ref">Ecclesiastes 4:9</span></p>
-            <p class="hero-invite">Together with our families, we joyfully invite you to join us<br>and seek your blessings as we celebrate our Betrothal Ceremony.</p>
+            <p class="hero-invite">Together with our families, we joyfully invite you<br>to join us and seek your blessings<br>as we celebrate our Betrothal Ceremony.</p>
             <div class="couple-names">
               <span class="name-first">Treesa</span>
               <span class="amp">&amp;</span>
@@ -870,23 +870,6 @@ body {
     envelope.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openEnvelope(); }
     });
-
-    /* ---------- Petals ---------- */
-    var petalLayer = document.querySelector('.petals');
-    var petalCount = window.matchMedia('(max-width: 480px)').matches ? 10 : 16;
-    for (var i = 0; i < petalCount; i++) {
-      var p = document.createElement('span');
-      p.className = 'petal';
-      p.style.left = Math.random() * 100 + '%';
-      p.style.animationDuration = (7 + Math.random() * 7) + 's';
-      p.style.animationDelay = (Math.random() * 8) + 's';
-      var size = 8 + Math.random() * 10;
-      p.style.width = size + 'px';
-      p.style.height = size + 'px';
-      p.style.setProperty('--sway', (Math.random() * 60 - 30) + 'px');
-      p.style.setProperty('--petal-opacity', (0.4 + Math.random() * 0.4).toFixed(2));
-      petalLayer.appendChild(p);
-    }
 
     /* ---------- Add to Calendar (.ics) ---------- */
     var calBtn = document.getElementById('calBtn');
