@@ -238,22 +238,17 @@ body {
   position: relative;
   padding: 0;
   background: #000;
-  min-height: 100vh;
-  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   color: var(--ink);
 }
-/* full, uncropped crimson-scroll card centered on black;
-   capped so the whole card fits within the viewport (no scroll needed) */
+/* crimson-scroll card shown at its natural ratio within the column */
 .hero-art {
   position: relative;
   margin: 0 auto;
-  /* keep image ratio 941:1672; width-driven so the card is wider */
   width: 100%;
-  max-width: 588px;
   aspect-ratio: 941 / 1672;
 }
 .hero-art::before {
@@ -618,26 +613,10 @@ body {
 .reveal.show { opacity: 1; transform: none; }
 
 @media (max-width: 480px) {
-  .scroll { padding: 0 0 40px; }
-  .panel { padding: 32px 18px; margin-left: 10px; margin-right: 10px; }
-  .main-card { margin-left: 0; margin-right: 0; }
+  .scroll { padding: 0 12px 40px; }
+  .panel { padding: 32px 18px; }
   .countdown-grid { gap: 6px; }
   .gallery-grid img { height: 120px; }
-  /* hero card fills the full screen width on mobile, no black border */
-  .scroll { padding-left: 0; padding-right: 0; }
-  .main-card {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .hero { min-height: auto; padding: 0; }
-  .hero-art {
-    width: 100vw;
-    max-width: 100vw;
-    margin: 0;
-  }
-  .hero-art::before { background-size: 100% 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .music-toggle.playing .music-icon { animation: none; }
