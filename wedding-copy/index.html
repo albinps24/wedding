@@ -67,8 +67,8 @@ body::before {
   top: -40px;
   width: 12px; height: 12px;
   background:
-    radial-gradient(circle at 32% 26%, rgba(255,255,255,0.7), transparent 42%),
-    radial-gradient(circle at 30% 30%, #b6e0c4, #4aa574 78%);
+    radial-gradient(circle at 32% 26%, rgba(255,255,255,0.75), transparent 42%),
+    radial-gradient(circle at 30% 30%, #cdd6a9, #8a9a63 78%);
   border-radius: 80% 0 80% 0;
   opacity: 0.55;
   will-change: transform, opacity;
@@ -1052,8 +1052,15 @@ body::before {
   }
 
   window.startWeddingMusic = function () {
-    // Music disabled for now. To re-enable, restore the playback logic below.
-    return;
+    btn.hidden = false;
+    const p = audio.play();
+    if (p && p.catch) {
+      p.then(function () { fadeTo(0.55, 1200); updateIcon(); })
+       .catch(function () { updateIcon(); }); // autoplay blocked; user can tap the button
+    } else {
+      fadeTo(0.55, 1200);
+      updateIcon();
+    }
   };
 
   btn.addEventListener('click', function () {
